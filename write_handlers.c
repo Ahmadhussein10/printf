@@ -112,7 +112,7 @@ int write_num(int ind, char buffer[],
 		for (i = 1; i < width - length + 1; i++)
 			buffer[i] = padd;
 		buffer[i] = '\0';
-		if (flags & F_MINUS && padd == ' ')/* Asign extra char to left of buffer */
+		if (flags & F_MINUS && padd == ' ')
 		{
 			if (extra_c)
 				buffer[--ind] = extra_c;
@@ -160,7 +160,7 @@ int write_unsgnd(int is_negative, int ind,
 	UNUSED(is_negative);
 	UNUSED(size);
 
-	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
+	if (precision == 0 && ind == BUFF_SIZE - 1 && buffer[ind] == '0')
 		return (0); /* printf(".0d", 0)  no char is printed */
 
 	if (precision > 0 && precision < length)
